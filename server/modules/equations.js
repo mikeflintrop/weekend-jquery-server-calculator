@@ -1,7 +1,7 @@
-let inventoryList = [
+let equationsList = [
     { name: 'name', description: 'description'},
     { name: 'name', description: 'description'},
     { name: 'name', description: 'description'}
 ];
 
-module.exports = inventoryList;
+module.exports = equationsList;
