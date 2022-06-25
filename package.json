@@ -1,0 +1,23 @@
+{
+  "name": "serversideinventory",
+  "version": "1.0.0",
+  "description": "Server Side Inventory ==",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeflintrop/serverSideInventory.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeflintrop/serverSideInventory/issues"
+  },
+  "homepage": "https://github.com/mikeflintrop/serverSideInventory#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
