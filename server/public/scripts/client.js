@@ -1,5 +1,11 @@
 $(onReady);
 
+let newEquation = {
+    numOne: '', 
+    numTwo: '', 
+    function: ''
+}
+
 function onReady () {
     // Get Data
     getEquations();
@@ -18,7 +24,9 @@ function handleEqualClick () {
     const newEquation = {
         numOne: $('#numOneInput').val(),
         numTwo: $('#numTwoInput').val(),
-    }
+        function: $(function)
+    };
+
     console.log(newEquation);
     // ajax request to server
     // data should always be an object
@@ -28,6 +36,10 @@ function handleEqualClick () {
         data: newEquation, // data here becomes req.body on server
     }).then(function (response){ // the quotes from server
         console.log(response);
+        handleAddClick();
+        handleSubClick();
+        handleMultClick();
+        handleDivClick();
 
         // trigger get()
         getEquations();
@@ -41,22 +53,28 @@ function handleEqualClick () {
 
 function handleAddClick () {
     console.log('add clicked');
+    newEquation.function = '+';
 }
 
 function handleSubClick () {
     console.log('sub clicked');
+    newEquation.function = '-';
 }
 
 function handleMultClick () {
     console.log('mult clicked');
+    newEquation.function = '*';
 }
 
 function handleDivClick () {
     console.log('div clicked');
+    newEquation.function = '/';
 }
 
 function handleClearClick () {
     console.log('clear clicked');
+    $('#numOneInput').val('');
+    $('#numTwoInput').val('');
 }
 
 function getEquations () {
