@@ -4,21 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>jQuery Server Calculator</title>
     <link rel="stylesheet" href="./styles/style.css">
     <script src="./vendors/jquery-3.6.0.min.js"></script>
     <script src="./scripts/client.js"></script>
 </head>
 <body>
-    <h1>Server Side Inventory</h1>
-    <h2>Add Item:</h2>
-    <input placeholder="name" id="nameInput" />
-    <input placeholder="description" id="descriptionInput" />
-    <button id="addInput">ADD</button>
-    <input placeholder="search" id="searchInput" />
-    <button id="searchInput">SEARCH</button>
-    <button id="clearInventory">CLEAR</button>
-
-    <ul id="outputInventory"></ul>
+    <h1>jQuery Server Calculator</h1>
+    <h2>Maths!</h2>
+    <input placeholder="number" id="numOneInput" type="number"/>
+    <button id="addBtn">+</button>
+    <button id="subBtn">-</button>
+    <button id="multBtn">*</button>
+    <button id="divBtn">/</button>
+    <input placeholder="number" id="numTwoInput" type="number"/>
+    <button id="equalBtn">=</button>
+    <button id="clearBtn">C</button>
+    <div>
+        <h3 id="outputTotal"></h3>
+        <ul id="outputEquations"></ul>
+    </div>
 </body>
 </html>
