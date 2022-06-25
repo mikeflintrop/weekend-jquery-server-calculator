@@ -77,12 +77,12 @@ function handleClearClick () {
 
 function getEquations () {
     console.log('start of getEquations');
-    // Get all quotes from server
+    // Get all equation from server
     // AJAX
     $.ajax({ // linked from server.js
         url: '/equations',
         method: 'GET'
-    }).then(function (response) { // the quotes from server
+    }).then(function (response) { // the equations from server
         console.log(response);
         // response is whatever res.send() sent us
         render(response);
@@ -101,7 +101,7 @@ function render (equationsList) {
 
     // append to the DOM
     for (let equation of equationsList) {
-        $('#outputEquations').append(`<li> ${equation.numOne} ${equation.numTwo} =  </li>`);
+        $('#outputEquations').append(`<li> ${equation.numOne} ${equation.function} ${equation.numTwo} =  </li>`);
     }
     $('#numOneInput').val('');
     $('#numTwoInput').val('');
