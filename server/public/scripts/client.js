@@ -21,11 +21,8 @@ function onReady () {
 function handleEqualClick () {
     console.log('equal clicked');
     // collect inputs..
-    const newEquation = {
-        numOne: $('#numOneInput').val(),
-        numTwo: $('#numTwoInput').val(),
-        function: $(function)
-    };
+    newEquation.numOne = $('#numOneInput').val(),
+    newEquation.numTwo = $('#numTwoInput').val(),
 
     console.log(newEquation);
     // ajax request to server
@@ -36,6 +33,7 @@ function handleEqualClick () {
         data: newEquation, // data here becomes req.body on server
     }).then(function (response){ // the quotes from server
         console.log(response);
+        // button functions
         handleAddClick();
         handleSubClick();
         handleMultClick();
