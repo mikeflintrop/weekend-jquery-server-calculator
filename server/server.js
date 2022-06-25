@@ -19,11 +19,6 @@ app.get('/equations', function(req, res) {
     res.send(equationsList);
 })
 
-// app.get('/search', function(req, res) {
-//     console.log('In get Search');
-//     req.send(searchList);
-// })
-
 app.post('/equations', function(req, res) {
     // well, where is the quote..?
     console.log('In POST /equations', req.body);

@@ -1,7 +1,3 @@
-let equationsList = [
-    { numOne: 'numOne', numTwo: 'numTwo'},
-    { nameOne: 'numOne', numTwo: 'numTwo'},
-    { nameOne: 'numOne', nameTwo: 'numTwo'}
-];
+let equationsList = [];
 
 module.exports = equationsList;

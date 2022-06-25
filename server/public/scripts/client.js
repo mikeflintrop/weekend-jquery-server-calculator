@@ -5,9 +5,15 @@ function onReady () {
     getEquations();
 
     $('#equalBtn').on('click', handleEqualClick);
+    $('#addBtn').on('click', handleAddClick);
+    $('#subBtn').on('click', handleSubClick);
+    $('#multBtn').on('click', handleMultClick);
+    $('#divBtn').on('click', handleDivClick);
+    $('#clearBtn').on('click', handleClearClick);
 }
 
 function handleEqualClick () {
+    console.log('equal clicked');
     // collect inputs..
     const newEquation = {
         numOne: $('#numOneInput').val(),
@@ -25,10 +31,33 @@ function handleEqualClick () {
 
         // trigger get()
         getEquations();
+        // catch for error
+    }).catch(function (error) {
+        // 404, 500, etc
+        console.log(error);
+        alert('Error in POST /equations');
     })
-
 }
 
+function handleAddClick () {
+    console.log('add clicked');
+}
+
+function handleSubClick () {
+    console.log('sub clicked');
+}
+
+function handleMultClick () {
+    console.log('mult clicked');
+}
+
+function handleDivClick () {
+    console.log('div clicked');
+}
+
+function handleClearClick () {
+    console.log('clear clicked');
+}
 
 function getEquations () {
     console.log('start of getEquations');
@@ -56,7 +85,7 @@ function render (equationsList) {
 
     // append to the DOM
     for (let equation of equationsList) {
-        $('#outputEquations').append(`<li> ${equation.numOne}: ${equation.numTwo} </li>`);
+        $('#outputEquations').append(`<li> ${equation.numOne} ${equation.numTwo} =  </li>`);
     }
     $('#numOneInput').val('');
     $('#numTwoInput').val('');
