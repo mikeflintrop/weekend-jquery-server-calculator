@@ -1,7 +1,7 @@
 let equationsList = [
-    { name: 'name', description: 'description'},
-    { name: 'name', description: 'description'},
-    { name: 'name', description: 'description'}
+    { numOne: 'numOne', numTwo: 'numTwo'},
+    { nameOne: 'numOne', numTwo: 'numTwo'},
+    { nameOne: 'numOne', nameTwo: 'numTwo'}
 ];
 
 module.exports = equationsList;

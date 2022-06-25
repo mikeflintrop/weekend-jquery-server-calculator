@@ -2,40 +2,40 @@ $(onReady);
 
 function onReady () {
     // Get Data
-    getInventory();
+    getEquations();
 
-    $('#addInput').on('click', handleClick);
+    $('#equalBtn').on('click', handleEqualClick);
 }
 
-function handleClick () {
+function handleEqualClick () {
     // collect inputs..
-    const newItem = {
-        name: $('#nameInput').val(),
-        description: $('#descriptionInput').val(),
+    const newEquation = {
+        numOne: $('#numOneInput').val(),
+        numTwo: $('#numTwoInput').val(),
     }
-    console.log(newItem);
+    console.log(newEquation);
     // ajax request to server
     // data should always be an object
     $.ajax({ // linked from server.js
-        url: '/inventory',
+        url: '/equations',
         method: 'POST',
-        data: newItem, // data here becomes req.body on server
+        data: newEquation, // data here becomes req.body on server
     }).then(function (response){ // the quotes from server
         console.log(response);
 
         // trigger get()
-        getInventory();
+        getEquations();
     })
 
 }
 
 
-function getInventory () {
-    console.log('start of getInventory');
+function getEquations () {
+    console.log('start of getEquations');
     // Get all quotes from server
     // AJAX
     $.ajax({ // linked from server.js
-        url: '/inventory',
+        url: '/equations',
         method: 'GET'
     }).then(function (response) { // the quotes from server
         console.log(response);
@@ -44,19 +44,20 @@ function getInventory () {
     }).catch(function (error) {
         // 404, 500, etc
         console.log(error);
-        alert('Error in GET /inventory');
+        alert('Error in GET /equations');
     })
-    console.log('end of getInventory')
+    console.log('end of getEquations')
 }
 
-function render (inventoryList) {
+function render (equationsList) {
     // empty - dont want doubles
-    $('#outputInventory').empty();
+    $('#outputTotal').empty();
+    $('#outputEquations').empty();
 
     // append to the DOM
-    for (let item of inventoryList) {
-        $('#outputInventory').append(`<li> ${item.name}: ${item.description} </li>`);
+    for (let equation of equationsList) {
+        $('#outputEquations').append(`<li> ${equation.numOne}: ${equation.numTwo} </li>`);
     }
-    $('#nameInput').val('');
-    $('#descriptionInput').val('');
+    $('#numOneInput').val('');
+    $('#numTwoInput').val('');
 }
