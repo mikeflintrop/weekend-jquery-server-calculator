@@ -24,8 +24,8 @@ app.post('/equations', function(req, res) {
     console.log('In POST /equations', req.body);
     // set variables
     const equation = req.body;
-    const numOne = parseFloat(equation.numOne);
-    const numTwo = parseFloat(equation.numTwo);
+    const numOne = Number(equation.numOne);
+    const numTwo = Number(equation.numTwo);
     const operator = equation.function; // couldn't call it function :(
     // switch statement
     let result = 0;
@@ -48,7 +48,7 @@ app.post('/equations', function(req, res) {
     console.log(equation)
     // save our quote...
     // equationsList.push(req.body);
-    console.log(req.body)
+    // console.log(req.body)
     // send back response..
     res.sendStatus(201);
 })

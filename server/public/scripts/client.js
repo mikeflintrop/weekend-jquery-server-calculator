@@ -102,8 +102,8 @@ function render (equationsList) {
     // append to the DOM
     for (let equation of equationsList) {
         $('#outputEquations').append(`<li> ${equation.numOne} ${equation.function} ${equation.numTwo} = ${equation.result} </li>`);
-        $('#outputTotal').append(`${equation.result}`);
     }
+    $('#outputTotal').append(`${equationsList[equationsList.length-1].result}`);
     // clear inputs
     $('#numOneInput').val('');
     $('#numTwoInput').val('');
