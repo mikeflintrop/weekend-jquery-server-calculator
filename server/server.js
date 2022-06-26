@@ -22,8 +22,33 @@ app.get('/equations', function(req, res) {
 app.post('/equations', function(req, res) {
     // well, where is the quote..?
     console.log('In POST /equations', req.body);
+    // set variables
+    const equation = req.body;
+    const numOne = parseFloat(equation.numOne);
+    const numTwo = parseFloat(equation.numTwo);
+    const operator = equation.function; // couldn't call it function :(
+    // switch statement
+    let result = 0;
+    switch (operator) {
+        case '+':
+            result = numOne + numTwo;
+            break;
+        case '-':
+            result = numOne - numTwo;
+            break;
+        case '*':
+            result = numOne * numTwo;
+            break;
+        case '/':
+            result = numOne / numTwo;
+            break;
+    };
+    equation.result = result; // add result property
+    equationsList.push(equation); // push data to equationsList
+    console.log(equation)
     // save our quote...
-    equationsList.push(req.body);
+    // equationsList.push(req.body);
+    console.log(req.body)
     // send back response..
     res.sendStatus(201);
 })

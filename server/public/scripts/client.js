@@ -96,13 +96,15 @@ function getEquations () {
 
 function render (equationsList) {
     // empty - dont want doubles
-    $('#outputTotal').empty();
     $('#outputEquations').empty();
+    $('#outputTotal').empty();
 
     // append to the DOM
     for (let equation of equationsList) {
-        $('#outputEquations').append(`<li> ${equation.numOne} ${equation.function} ${equation.numTwo} =  </li>`);
+        $('#outputEquations').append(`<li> ${equation.numOne} ${equation.function} ${equation.numTwo} = ${equation.result} </li>`);
+        $('#outputTotal').append(`${equation.result}`);
     }
+    // clear inputs
     $('#numOneInput').val('');
     $('#numTwoInput').val('');
 }
