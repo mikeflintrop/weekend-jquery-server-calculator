@@ -3,10 +3,36 @@ body {
     color: white;
 }
 
-h1, h2 {
+h1 {
     text-align: center;
 }
 
 h3 {
     margin-left: 30px;
+}
+
+button {
+    border-radius: 10px;
+}
+button:hover {
+    background-color: lightsteelblue;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0.5, 0, 0.5);
+}
+
+.input {
+    border: 2px solid #e8e8e8;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #212121;
+    font-size: small;
+    font-weight: bold;
+    text-align: center;
+}
+
+.input:focus {
+    outline-color: white;
+    background-color: #212121;
+    color: #e8e8e8;
+    box-shadow: 5px 5px #888888;
 }
