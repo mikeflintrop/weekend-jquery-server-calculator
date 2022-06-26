@@ -3,7 +3,8 @@ $(onReady);
 let newEquation = {
     numOne: '', 
     numTwo: '', 
-    function: ''
+    function: '',
+    result: '',
 }
 
 function onReady () {
@@ -19,20 +20,20 @@ function onReady () {
 }
 
 function handleEqualClick () {
-    console.log('equal clicked');
+    // console.log('equal clicked');
     // collect inputs..
     newEquation.numOne = $('#numOneInput').val(),
     newEquation.numTwo = $('#numTwoInput').val(),
 
-    console.log(newEquation);
+    console.log('new equation', newEquation);
     // ajax request to server
     // data should always be an object
     $.ajax({ // linked from server.js
         url: '/equations',
         method: 'POST',
         data: newEquation, // data here becomes req.body on server
-    }).then(function (response){ // the quotes from server
-        console.log(response);
+    }).then(function (response){ // the equations from server
+        console.log('res', response);
         // button functions
         handleAddClick();
         handleSubClick();
@@ -41,6 +42,7 @@ function handleEqualClick () {
 
         // trigger get()
         getEquations();
+        // getResult();
         // catch for error
     }).catch(function (error) {
         // 404, 500, etc
@@ -50,27 +52,27 @@ function handleEqualClick () {
 }
 
 function handleAddClick () {
-    console.log('add clicked');
+    // console.log('add clicked');
     newEquation.function = '+';
 }
 
 function handleSubClick () {
-    console.log('sub clicked');
+    // console.log('sub clicked');
     newEquation.function = '-';
 }
 
 function handleMultClick () {
-    console.log('mult clicked');
+    // console.log('mult clicked');
     newEquation.function = '*';
 }
 
 function handleDivClick () {
-    console.log('div clicked');
+    // console.log('div clicked');
     newEquation.function = '/';
 }
 
 function handleClearClick () {
-    console.log('clear clicked');
+    // console.log('clear clicked');
     $('#numOneInput').val('');
     $('#numTwoInput').val('');
 }
@@ -88,7 +90,7 @@ function getEquations () {
         render(response);
     }).catch(function (error) {
         // 404, 500, etc
-        console.log(error);
+        console.log(error); // idk why this error is logging but not actually effecting anything
         alert('Error in GET /equations');
     })
     console.log('end of getEquations')
@@ -103,8 +105,15 @@ function render (equationsList) {
     for (let equation of equationsList) {
         $('#outputEquations').prepend(`<li> ${equation.numOne} ${equation.function} ${equation.numTwo} = ${equation.result} </li>`);
     }
+    // getResult();
     $('#outputTotal').append(`${equationsList[equationsList.length-1].result}`);
     // clear inputs
     $('#numOneInput').val('');
     $('#numTwoInput').val('');
 }
+
+// function getResult (equationsList) {
+//     $('#outputTotal').empty();
+//     // $('#outputTotal').append(`${equationsList[equationsList.length-1].result}`);
+//     $('#outputTotal').append(`${newEquation.result}`);
+// }
