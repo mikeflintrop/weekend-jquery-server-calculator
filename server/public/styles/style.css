@@ -1,0 +1,12 @@
+body {
+    background-color: rgb(15, 110, 170);
+    color: white;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h3 {
+    margin-left: 30px;
+}
